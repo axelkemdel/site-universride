@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "b562fcf6-09e2-48f7-aa2d-45a7da58fb4d",
+  "id": "c0bfd890-b5e1-4677-a369-98fc06f12dca",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "admin_logs": {
@@ -16,7 +16,7 @@
         },
         "admin_id": {
           "name": "admin_id",
-          "type": "int",
+          "type": "bigint unsigned",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -381,7 +381,7 @@
         },
         "uploaded_by": {
           "name": "uploaded_by",
-          "type": "int",
+          "type": "bigint unsigned",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -573,14 +573,14 @@
         },
         "image_id": {
           "name": "image_id",
-          "type": "int",
+          "type": "bigint unsigned",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "updated_by": {
           "name": "updated_by",
-          "type": "int",
+          "type": "bigint unsigned",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false

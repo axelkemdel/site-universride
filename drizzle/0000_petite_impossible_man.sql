@@ -1,6 +1,6 @@
 CREATE TABLE `admin_logs` (
-	`id` serial AUTO_INCREMENT NOT NULL,
-	`admin_id` int,
+	`id` serial NOT NULL,
+	`admin_id` bigint unsigned,
 	`action` varchar(100) NOT NULL,
 	`target_entity` varchar(100),
 	`target_id` int,
@@ -11,7 +11,7 @@ CREATE TABLE `admin_logs` (
 );
 --> statement-breakpoint
 CREATE TABLE `admin_users` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`name` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL,
 	`password_hash` text NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `admin_users` (
 );
 --> statement-breakpoint
 CREATE TABLE `analytics_events` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`event_name` varchar(100) NOT NULL,
 	`metadata` json,
 	`language` varchar(10),
@@ -34,7 +34,7 @@ CREATE TABLE `analytics_events` (
 );
 --> statement-breakpoint
 CREATE TABLE `contact_submissions` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`full_name` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL,
 	`phone` varchar(50),
@@ -46,7 +46,7 @@ CREATE TABLE `contact_submissions` (
 );
 --> statement-breakpoint
 CREATE TABLE `media_library` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`filename` varchar(255) NOT NULL,
 	`url` text NOT NULL,
 	`mime_type` varchar(100) NOT NULL,
@@ -54,13 +54,13 @@ CREATE TABLE `media_library` (
 	`alt_text_fr` varchar(255),
 	`alt_text_en` varchar(255),
 	`alt_text_sg` varchar(255),
-	`uploaded_by` int,
+	`uploaded_by` bigint unsigned,
 	`created_at` timestamp NOT NULL DEFAULT (now()),
 	CONSTRAINT `media_library_id` PRIMARY KEY(`id`)
 );
 --> statement-breakpoint
 CREATE TABLE `page_views` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`page_url` varchar(255) NOT NULL,
 	`language` varchar(10) NOT NULL,
 	`device_type` enum('DESKTOP','MOBILE','TABLET') NOT NULL DEFAULT 'DESKTOP',
@@ -72,7 +72,7 @@ CREATE TABLE `page_views` (
 );
 --> statement-breakpoint
 CREATE TABLE `site_sections` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`section_key` varchar(100) NOT NULL,
 	`title_fr` varchar(255),
 	`title_en` varchar(255),
@@ -80,15 +80,15 @@ CREATE TABLE `site_sections` (
 	`content_fr` text,
 	`content_en` text,
 	`content_sg` text,
-	`image_id` int,
-	`updated_by` int,
+	`image_id` bigint unsigned,
+	`updated_by` bigint unsigned,
 	`updated_at` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
 	CONSTRAINT `site_sections_id` PRIMARY KEY(`id`),
 	CONSTRAINT `site_sections_section_key_unique` UNIQUE(`section_key`)
 );
 --> statement-breakpoint
 CREATE TABLE `site_settings` (
-	`id` serial AUTO_INCREMENT NOT NULL,
+	`id` serial NOT NULL,
 	`setting_key` varchar(100) NOT NULL,
 	`setting_value` text NOT NULL,
 	`description` varchar(255),
