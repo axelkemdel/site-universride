@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://univers-ride.net/sitemap.xml
+Sitemap: https://univers-ride.org/sitemap.xml
